@@ -89,8 +89,8 @@ def paddle_right_down():
 # Keyboard binding
 
 win.listen()
-win.onkeypress(paddle_left_up,"u")
-win.onkeypress(paddle_left_down,"e")
+win.onkeypress(paddle_left_up,"a")
+win.onkeypress(paddle_left_down,"z")
 win.onkeypress(paddle_right_up,"Up")
 win.onkeypress(paddle_right_down,"Down")
 
