@@ -3,12 +3,17 @@
 # Version - 3.7.0
 
 import turtle as t
-import os
+import os, time
+
+print(t)
 
 # Score varibales
 
 player_a_score = 0
 player_b_score = 0
+
+# Max score
+MAX_SCORE = 2
 
 win = t.Screen()    # creating a window
 win.title("Ping-Pong Game") # Giving name to the game.
@@ -148,3 +153,22 @@ while True:
         ball.setx(-340)
         ball_dx = ball_dx * -1
         os.system("afplay paddle.wav&")
+
+
+    # Add a game over screen
+    if player_a_score == MAX_SCORE or player_b_score == MAX_SCORE:
+        win.clear()  # Clear the game screen
+        win.bgcolor('brown')  # Set the background color
+        win.tracer(0)  # Disable screen updates
+        game_over = t.Turtle()  # Create a turtle object
+        game_over.speed(0)
+        game_over.color('white')
+        game_over.penup()
+        game_over.hideturtle()
+        if player_a_score == MAX_SCORE:        
+            game_over.write("Player A wins!\nFinal score: {}-{}".format(player_a_score, player_b_score), align="center", font=('Monaco', 24, "normal"))
+        else:
+            print("Player B wins!\nFinal score: {}-{}".format(player_a_score, player_b_score))  
+            game_over.write("Player B wins!\nFinal score: {}-{}".format(player_a_score, player_b_score), align="center", font=('Monaco', 24, "normal"))
+
+        win.update()  # Update the window to display the text
