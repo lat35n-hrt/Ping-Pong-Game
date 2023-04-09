@@ -88,6 +88,20 @@ win.onkeypress(paddle_left_down,"z")
 win.onkeypress(paddle_right_up,"Up")
 win.onkeypress(paddle_right_down,"Down")
 
+# Create an Exit Button
+button = t.Turtle()
+button.speed(0)
+button.color('white')
+button.penup()
+button.goto(0, -200)
+button.write("Exit", align="center", font=('Monaco', 24, "normal"))
+
+# Add a click event to the button
+def exit_game(x, y):
+    t.bye()  # Close the turtle window
+button.onclick(exit_game)  # Bind the click event to the button
+
+
 # Main Game Loop
 while True:
     win.update() # This methods is mandatory to run any game
