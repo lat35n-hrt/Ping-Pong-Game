@@ -172,3 +172,7 @@ while True:
             game_over.write("Player B wins!\nFinal score: {}-{}".format(player_a_score, player_b_score), align="center", font=('Monaco', 24, "normal"))
 
         win.update()  # Update the window to display the text
+
+        while True:
+            time.sleep(10)  # pause for 10 seconds
+            t.bye()  # Close the turtle window
