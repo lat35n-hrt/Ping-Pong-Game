@@ -11,7 +11,7 @@ player_a_score = 0
 player_b_score = 0
 
 # Max score
-MAX_SCORE = 2
+MAX_SCORE = 10
 
 win = t.Screen()    # creating a window
 win.title("Ping-Pong Game") # Giving name to the game.
@@ -93,7 +93,7 @@ button = t.Turtle()
 button.speed(0)
 button.color('white')
 button.penup()
-button.goto(0, -200)
+button.goto(0, -250)
 button.write("Exit", align="center", font=('Monaco', 24, "normal"))
 
 # Add a click event to the button
@@ -149,6 +149,10 @@ while True:
         ball_dx = ball_dx * -1
         os.system("afplay paddle.wav&")
 
+    # Customize speed
+    n = max(player_a_score, player_b_score)
+    ball.speed(n**10)
+    print("speed:" + str(n**10))
 
     # Add a game over screen
     if player_a_score == MAX_SCORE or player_b_score == MAX_SCORE:
